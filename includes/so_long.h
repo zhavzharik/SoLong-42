@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/12 19:46:45 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/15 00:54:49 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@
 # include <stdbool.h>
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
+
+# define WALL "../assets/tree2.xpm"
+# define ROWAN "../assets/rowan.xpm"
+# define PUMP1 "../assets/pumpkin1.xpm"
+# define PUMP2 "../assets/pumpkin2.xpm"
+# define GROUND "../assets/ground1.xpm"
+# define HOUSE "../assets/house1.xpm"
+# define MOON "../assets/moon1.xpm"
+
+# define ORANGE 0xFE6500
 
 typedef struct s_data
 {
