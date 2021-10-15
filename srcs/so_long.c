@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.c                                           :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 16:24:36 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/12 17:09:59 by abridger         ###   ########.fr       */
+/*   Created: 2021/10/15 16:14:27 by abridger          #+#    #+#             */
+/*   Updated: 2021/10/15 22:34:29 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	create_trgb(int t, int r, int g, int b)
+int	main(int argc, char **argv)
 {
-	return (t << 24 | r << 16 | g << 8 | b);
-}
+	t_data	*game;
 
-int	get_t(int trgb)
-{
-	return (trgb & (0xFF << 24));
-}
-
-int	get_r(int trgb)
-{
-	return (trgb & (0xFF << 16));
-}
-
-int	get_g(int trgb)
-{
-	return (trgb & (0xFF << 8));
-}
-
-int	get_b(int trgb)
-{
-	return (trgb & 0xFF);
+	(void)argc;
+	game = (t_data *)malloc(sizeof(t_data));
+	if (!game)
+		return (-1);
+	init_game(game);
+	if (!ft_reading_file(argv[1], &game))
+	{
+		free(game);
+		return (0);
+	}
+	return (0);
 }

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 09:05:22 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/15 19:04:56 by abridger         ###   ########.fr       */
+/*   Created: 2021/10/15 18:39:35 by abridger          #+#    #+#             */
+/*   Updated: 2021/10/15 18:39:36 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strcpy(char *dest, char const *src)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (*(str + i) != 0)
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
 		i++;
-	return (i);
+	}
+	dest[i] = '\0';
+	return (dest);
 }

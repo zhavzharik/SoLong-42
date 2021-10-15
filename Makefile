@@ -6,7 +6,7 @@
 #    By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 16:45:44 by abridger          #+#    #+#              #
-#    Updated: 2021/10/13 17:31:55 by abridger         ###   ########.fr        #
+#    Updated: 2021/10/15 22:39:41 by abridger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,9 @@ LIBFT_DIR		=	./libft/
 
 LIBMLX_DIR		=	./mlx/
 
-SRCS			=	$(SRCS_DIR)	colors.c \
-								main.c
+SRCS			=	$(SRCS_DIR)	so_long.c	\
+								get_map.c	\
+								init.c
 
 
 

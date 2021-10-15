@@ -12,18 +12,22 @@ LIST =			ft_atoi.c			\
 				ft_putstr.c			\
 				ft_strcmp.c			\
 				ft_strdup.c			\
-				ft_strlen.c
+				ft_strlen.c			\
+				ft_strchr.c			\
+				ft_strcpy.c 		\
+				ft_strjoin.c		\
+				get_next_line.c
 
 
 OBJ = $(LIST:.c=.o)
 
 CC = gcc
 
-REM = rm -f
+RM = rm -f
 
 LIBH = libft.h
 
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
@@ -32,13 +36,13 @@ $(NAME): $(OBJ)
 	ranlib $(NAME)
 
 %.o : %.c $(LIBH)
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	$(REM) $(OBJ)
+	$(RM) $(OBJ)
 
 fclean : clean
-	$(REM) $(NAME)
+	$(RM) $(NAME)
 
 re : fclean all
 
