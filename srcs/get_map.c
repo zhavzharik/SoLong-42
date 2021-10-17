@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 16:40:09 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/15 22:38:55 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/17 20:38:21 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static size_t	get_map_height(char *file)
 	char	*line;
 	size_t	size;
 
-	size = 1;
+	size = 0;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (0);
@@ -43,6 +43,7 @@ int	ft_reading_file(char *file, t_data **game)
 	size_t	size;
 
 	size = get_map_height(file);
+	printf("Size = %zu\n", size); // delete
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/15 22:33:24 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/17 20:35:35 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ typedef struct s_visual
 
 t_data		*init_game(t_data *game);
 int			ft_reading_file(char *file, t_data **game);
+void		print_map_data(t_data **game); // delete
 
 #endif

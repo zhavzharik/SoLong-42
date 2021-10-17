@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 12:15:25 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/15 21:10:12 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/17 19:56:15 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	get_next_line(int fd, char **line)
 	if (!buf)
 		return (-1);
 	lesen = 1;
-	n_point = check_rest(rest, line);
+	n_point = check_rest(rest[fd], line);
 	while (!n_point && lesen != 0)
 	{
 		lesen = read(fd, buf, BUFFER_SIZE);
