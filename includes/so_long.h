@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/19 14:25:56 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/19 19:15:48 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_data
 	void	*exit;
 	int		x_pos_player;
 	int		y_pos_player;
+	int		nb_cake;
 }			t_data;
 
 typedef struct s_visual
@@ -53,7 +54,6 @@ typedef struct s_visual
 }			t_visual;
 
 typedef void	(*t_action)(t_visual **, t_data **, int, int);
-// enum	e_assets {s, w, c, p, e};
 
 t_data		*init_game(t_data *game);
 t_visual	*init_window(t_visual *window, t_data *game);
@@ -74,7 +74,12 @@ void		put_exit(t_visual **window, t_data **game, int i, int j);
 void		ft_array_clear(char **array, int row);
 void		ft_ptr_clear(char *assets, t_action *func);
 void		ft_clear_window(t_visual **window);
-void		ft_struct_clear(t_data **game);
+void		ft_struct_clear(t_data *game);
+void		count_present(t_data **game);
+void		get_player_pos(t_data **game);
+int			key_hook(int keycode, t_visual *window);
+void		hook_test(t_visual **window);
+// int			close(int keycode, t_visual *window);
 void		print_map_data(t_data **game); // delete
 void		draw_test1(t_visual **window, t_data **game); // delete
 void		draw_test2(t_visual **window, t_data **game); // delete

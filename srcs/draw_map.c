@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 15:10:07 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/19 14:04:15 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/19 19:39:18 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	get_index(char *assets, char ch)
 	int	indx;
 
 	indx = 0;
-	while (indx < 5)
+	while (indx < (int)ft_strlen(assets))
 	{
 		if (assets[indx] == ch)
 		{
@@ -52,8 +52,9 @@ void	draw_map(t_visual **window, t_data **game)
 		}
 		line += PIC_SIDE;
 	}
-	mlx_loop((*window)->mlx_ptr);
-	// ft_ptr_clear(assets, func);
+	hook_test(window);
+	// mlx_loop((*window)->mlx_ptr);
+	ft_ptr_clear(assets, func);
 }
 
 void	draw_test1(t_visual **window, t_data **game)

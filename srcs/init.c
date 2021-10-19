@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 19:42:30 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/19 13:17:35 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/19 15:22:34 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_data	*init_game(t_data *game)
 	game->exit = NULL;
 	game->x_pos_player = 0;
 	game->y_pos_player = 0;
+	game->nb_cake = 0;
 	return (game);
 }
 
