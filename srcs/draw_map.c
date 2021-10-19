@@ -6,42 +6,54 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 15:10:07 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/18 17:22:59 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/19 14:04:15 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
+int	get_index(char *assets, char ch)
+{
+	int	indx;
+
+	indx = 0;
+	while (indx < 5)
+	{
+		if (assets[indx] == ch)
+		{
+			return (indx);
+		}
+		indx++;
+	}
+	return (indx);
+}
+
 void	draw_map(t_visual **window, t_data **game)
 {
-	char		**assets;
+	char		*assets;
 	t_action	*func;
-	int			ind_f;
-	int			i;
-	int			j;
+	int			line;
+	int			columns;
+	int			indx;
 
-	i = 0;
-	ind_f = 0;
+	line = 0;
 	set_picture(window, game);
-	assets = create_array_assets();
+	assets = create_str_assets();
 	func = create_array_function();
-	while (i < (*game)->map_l)
+	while (line < (*game)->map_h * PIC_SIDE)
 	{
-		j = 0;
-		while (j < (*game)->map_h)
+		columns = 0;
+		while (columns < (*game)->map_l * PIC_SIDE)
 		{
-			while (assets[ind_f] && ft_strcmp(assets[ind_f],
-					&(*game)->file_data[i][j]))
-				ind_f++;
-			if (ind_f > 4)
-				ft_puterror();
-			else
-				(func)[ind_f](window, game, i * PIC_SIDE, j * PIC_SIDE);
-			j++;
+			indx = get_index(assets,
+					(*game)->file_data[line / PIC_SIDE][columns / PIC_SIDE]);
+			(func)[indx](window, game, columns, line);
+			columns += PIC_SIDE;
 		}
-		i++;
+		line += PIC_SIDE;
 	}
 	mlx_loop((*window)->mlx_ptr);
+	// ft_ptr_clear(assets, func);
 }
 
 void	draw_test1(t_visual **window, t_data **game)

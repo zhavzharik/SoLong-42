@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 16:14:27 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/18 17:23:40 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/19 14:27:52 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ int	main(int argc, char **argv)
 	draw_map(&window, &game);
 	// draw_test2(&window, &game); // delete
 	// print_map_data(&game); // delete
+	ft_struct_clear(&game);
+	ft_clear_window(&window);
 	return (0);
 }

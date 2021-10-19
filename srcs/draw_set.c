@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:31:59 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/18 17:22:09 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/19 14:00:48 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,12 @@ void	set_picture(t_visual **window, t_data **game)
 			&img_width, &img_height);
 }
 
-char	**create_array_assets(void)
+char	*create_str_assets(void)
 {
-	char	**assets;
+	char	*assets;
 
-	assets = (char **)malloc(sizeof(char *) * 5);
-	(assets)[s] = ft_strdup("0\0");
-	(assets)[w] = ft_strdup("1\0");
-	(assets)[c] = ft_strdup("C\0");
-	(assets)[p] = ft_strdup("p\0");
-	(assets)[e] = ft_strdup("E\0");
+	assets = (char *)malloc(sizeof(char) * 6);
+	assets = "01CPE\0";
 	return (assets);
 }
 
@@ -48,10 +44,10 @@ t_action	*create_array_function(void)
 
 	array_func = NULL;
 	array_func = (t_action *)malloc(sizeof(5));
-	(array_func)[s] = &put_empty;
-	(array_func)[w] = &put_wall;
-	(array_func)[c] = &put_cake;
-	(array_func)[p] = &put_player;
-	(array_func)[e] = &put_exit;
+	(array_func)[0] = &put_empty;
+	(array_func)[1] = &put_wall;
+	(array_func)[2] = &put_cake;
+	(array_func)[3] = &put_player;
+	(array_func)[4] = &put_exit;
 	return (array_func);
 }

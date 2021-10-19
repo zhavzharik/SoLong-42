@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 19:42:30 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/18 15:09:15 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/19 13:17:35 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,24 @@ t_data	*init_game(t_data *game)
 	game->x_pos_player = 0;
 	game->y_pos_player = 0;
 	return (game);
+}
+
+void	init_array(char *file, t_data **game)
+{
+	int	row;
+
+	get_map_height(file, game);
+	get_map_length(file, game);
+	(*game)->file_data = (char **)malloc(sizeof(char *) * ((*game)->map_h));
+	row = 0;
+	while (row < (*game)->map_h)
+	{
+		(*game)->file_data[row] = (char *)malloc(sizeof(char)
+				* ((*game)->map_l + 1));
+		row++;
+	}
+	if (!((*game)->file_data))
+		exit (0);
 }
 
 t_visual	*init_window(t_visual *window, t_data *game)
