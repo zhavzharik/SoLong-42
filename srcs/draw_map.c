@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 15:10:07 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/19 19:39:18 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/20 21:36:33 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,33 +28,25 @@ int	get_index(char *assets, char ch)
 	return (indx);
 }
 
-void	draw_map(t_visual **window, t_data **game)
+void	draw_map(t_visual **window, t_data **game, t_action *func)
 {
-	char		*assets;
-	t_action	*func;
 	int			line;
 	int			columns;
 	int			indx;
 
 	line = 0;
-	set_picture(window, game);
-	assets = create_str_assets();
-	func = create_array_function();
 	while (line < (*game)->map_h * PIC_SIDE)
 	{
 		columns = 0;
 		while (columns < (*game)->map_l * PIC_SIDE)
 		{
-			indx = get_index(assets,
+			indx = get_index((*game)->assets,
 					(*game)->file_data[line / PIC_SIDE][columns / PIC_SIDE]);
 			(func)[indx](window, game, columns, line);
 			columns += PIC_SIDE;
 		}
 		line += PIC_SIDE;
 	}
-	hook_test(window);
-	// mlx_loop((*window)->mlx_ptr);
-	ft_ptr_clear(assets, func);
 }
 
 void	draw_test1(t_visual **window, t_data **game)

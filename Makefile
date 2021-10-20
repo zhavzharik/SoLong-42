@@ -6,7 +6,7 @@
 #    By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 16:45:44 by abridger          #+#    #+#              #
-#    Updated: 2021/10/19 17:52:30 by abridger         ###   ########.fr        #
+#    Updated: 2021/10/20 18:08:32 by abridger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,8 @@ SRCS			=	$(SRCS_DIR)	so_long.c		\
 								draw_map.c		\
 								clear.c			\
 								game_utils.c	\
+								actions.c		\
+								actions_utils.c	\
 								hook.c			\
 								additional.c
 

@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 13:17:16 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/19 15:52:57 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/20 21:42:21 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_array_clear(char **array, int row)
 void	ft_ptr_clear(char *assets, t_action *func)
 {
 	if (assets)
-		free(assets);
+		free(assets); // not need ?
 	if (func)
 		free(func);
 }
@@ -54,6 +54,8 @@ void	ft_struct_clear(t_data *game)
 		game->x_pos_player = 0;
 		game->y_pos_player = 0;
 		game->nb_cake = 0;
+		game->game_score = 0;
+		game->assets = NULL;
 	}
 	free(game);
 	game = NULL;

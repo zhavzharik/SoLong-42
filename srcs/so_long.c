@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 16:14:27 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/19 19:32:59 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/20 17:20:35 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,9 @@ int	main(int argc, char **argv)
 		return (-1);
 	init_game(game);
 	ft_reading_file(argv[1], &game);
-	init_window(window, game);
-	count_present(&game);
-	get_player_pos(&game);
-	draw_map(&window, &game);
-	// hook_test(window);
+	game_proceed(&window, &game);
+	mlx_loop(window->mlx_ptr);
 	// ft_struct_clear(&game);
 	// ft_clear_window(&window);
-	// hook_test(&window);
-	// mlx_loop((window)->mlx_ptr);
 	return (0);
 }
