@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 15:10:07 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/20 21:36:33 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/21 17:01:50 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	get_index(char *assets, char ch)
 	return (indx);
 }
 
-void	draw_map(t_visual **window, t_data **game, t_action *func)
+void	draw_map(t_data **game)
 {
 	int			line;
 	int			columns;
@@ -42,79 +42,9 @@ void	draw_map(t_visual **window, t_data **game, t_action *func)
 		{
 			indx = get_index((*game)->assets,
 					(*game)->file_data[line / PIC_SIDE][columns / PIC_SIDE]);
-			(func)[indx](window, game, columns, line);
+			execute_func(game, indx, columns, line);
 			columns += PIC_SIDE;
 		}
 		line += PIC_SIDE;
 	}
-}
-
-void	draw_test1(t_visual **window, t_data **game)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	set_picture(window, game);
-	while (i < (*game)->map_l * PIC_SIDE)
-	{
-		j = 0;
-		while (j < (*game)->map_h * PIC_SIDE)
-		{
-			mlx_put_image_to_window((*window)->mlx_ptr, (*window)->win_ptr,
-				(*game)->wall, i, j);
-			j += PIC_SIDE;
-		}
-		i += PIC_SIDE;
-	}
-	mlx_loop((*window)->mlx_ptr);
-}
-
-void	draw_test2(t_visual **window, t_data **game)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	set_picture(window, game);
-	while (i < (*game)->map_l * PIC_SIDE)
-	{
-		mlx_put_image_to_window((*window)->mlx_ptr, (*window)->win_ptr,
-			(*game)->wall, i, 0);
-		i += PIC_SIDE;
-	}
-	j = PIC_SIDE;
-	i = 0;
-	while (j < (*game)->map_h * PIC_SIDE)
-	{
-		mlx_put_image_to_window((*window)->mlx_ptr, (*window)->win_ptr,
-			(*game)->space, i, j);
-		j += PIC_SIDE;
-	}
-	j = PIC_SIDE;
-	i = PIC_SIDE;
-	while (j < (*game)->map_h * PIC_SIDE)
-	{
-		mlx_put_image_to_window((*window)->mlx_ptr, (*window)->win_ptr,
-			(*game)->cake, i, j);
-		j += PIC_SIDE;
-	}
-	j = PIC_SIDE;
-	i = PIC_SIDE * 2;
-	while (j < (*game)->map_h * PIC_SIDE)
-	{
-		mlx_put_image_to_window((*window)->mlx_ptr, (*window)->win_ptr,
-			(*game)->player, i, j);
-		j += PIC_SIDE;
-	}
-	j = PIC_SIDE;
-	i = PIC_SIDE * 3;
-	while (j < (*game)->map_h * PIC_SIDE)
-	{
-		mlx_put_image_to_window((*window)->mlx_ptr, (*window)->win_ptr,
-			(*game)->exit, i, j);
-		j += PIC_SIDE;
-	}
-	mlx_loop((*window)->mlx_ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 13:17:16 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/20 21:42:21 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/21 17:05:40 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,6 @@ void	ft_array_clear(char **array, int row)
 	*array = NULL;
 }
 
-void	ft_ptr_clear(char *assets, t_action *func)
-{
-	if (assets)
-		free(assets); // not need ?
-	if (func)
-		free(func);
-}
-
 void	ft_struct_clear(t_data *game)
 {
 	if (game)
@@ -47,12 +39,15 @@ void	ft_struct_clear(t_data *game)
 		game->map_h = 0;
 		game->map_l = 0;
 		game->wall = NULL;
-		game->player = NULL;
+		game->player_l = NULL;
+		game->player_r = NULL;
 		game->cake = NULL;
 		game->space = NULL;
-		game->exit = NULL;
+		game->exit_c = NULL;
+		game->exit_o = NULL;
 		game->x_pos_player = 0;
 		game->y_pos_player = 0;
+		game->flag_player = 0;
 		game->nb_cake = 0;
 		game->game_score = 0;
 		game->assets = NULL;
@@ -61,13 +56,13 @@ void	ft_struct_clear(t_data *game)
 	game = NULL;
 }
 
-void	ft_clear_window(t_visual **window)
+void	ft_clear_window(t_data **game)
 {
-	if (*window)
+	if (*game)
 	{
-		(*window)->mlx_ptr = NULL;
-		(*window)->win_ptr = NULL;
+		(*game)->mlx_ptr = NULL;
+		(*game)->win_ptr = NULL;
 	}
-	if (window)
-		free(window);
+	if (game)
+		free(game);
 }

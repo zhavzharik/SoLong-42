@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 15:17:08 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/20 22:27:39 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/21 17:06:27 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	count_present(t_data **game)
 		}
 		line++;
 	}
-	// printf("Number of present %d\n", (*game)->nb_cake); // delete
 }
 
 void	get_player_pos(t_data **game)
@@ -57,22 +56,17 @@ void	get_player_pos(t_data **game)
 		}
 		line++;
 	}
-	// printf("X_pos: %d\n", (*game)->x_pos_player); // delete
-	// printf("Y_pos: %d\n", (*game)->y_pos_player); // delete
 }
 
-void	game_proceed(t_visual **window, t_data **game)
+void	game_proceed(t_data **game)
 {
-	t_action	*func;
-
-	init_window(*window, *game);
+	init_window(game);
 	count_present(game);
 	get_player_pos(game);
-	set_picture(window, game);
-	func = create_array_function();
-	draw_map(window, game, func);
-	// setup_action(game, window);
-	hook_test(window);
-	// mlx_loop((*window)->mlx_ptr);
-	// ft_ptr_clear(assets, func);
+	set_picture(game);
+	print_map_data(game);
+	draw_map(game);
+	setup_action(game);
+	hook_test(*game); // rewrite
+	mlx_loop((*game)->mlx_ptr);
 }

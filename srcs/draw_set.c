@@ -6,48 +6,43 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:31:59 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/19 14:00:48 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/21 17:02:15 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	set_picture(t_visual **window, t_data **game)
+void	set_picture(t_data **game)
 {
 	int		img_width;
 	int		img_height;
 
-	(*game)->wall = mlx_xpm_file_to_image((*window)->mlx_ptr, PUMP1,
+	(*game)->wall = mlx_xpm_file_to_image((*game)->mlx_ptr, WALL,
 			&img_width, &img_height);
-	(*game)->player = mlx_xpm_file_to_image((*window)->mlx_ptr, GHOST2,
+	(*game)->player_l = mlx_xpm_file_to_image((*game)->mlx_ptr, GHOST_L,
 			&img_width, &img_height);
-	(*game)->cake = mlx_xpm_file_to_image((*window)->mlx_ptr, CAKE,
+	(*game)->player_r = mlx_xpm_file_to_image((*game)->mlx_ptr, GHOST_R,
 			&img_width, &img_height);
-	(*game)->space = mlx_xpm_file_to_image((*window)->mlx_ptr, ROWAN,
+	(*game)->cake = mlx_xpm_file_to_image((*game)->mlx_ptr, CAKE,
 			&img_width, &img_height);
-	(*game)->exit = mlx_xpm_file_to_image((*window)->mlx_ptr, HOUSE,
+	(*game)->space = mlx_xpm_file_to_image((*game)->mlx_ptr, GROUND,
+			&img_width, &img_height);
+	(*game)->exit_c = mlx_xpm_file_to_image((*game)->mlx_ptr, PORT_C,
+			&img_width, &img_height);
+	(*game)->exit_o = mlx_xpm_file_to_image((*game)->mlx_ptr, PORT_O,
 			&img_width, &img_height);
 }
 
-char	*create_str_assets(void)
+void	execute_func(t_data **game, int indx, int i, int j)
 {
-	char	*assets;
-
-	assets = (char *)malloc(sizeof(char) * 6);
-	assets = "01CPE\0";
-	return (assets);
-}
-
-t_action	*create_array_function(void)
-{
-	t_action	*array_func;
-
-	array_func = NULL;
-	array_func = (t_action *)malloc(sizeof(5));
-	(array_func)[0] = &put_empty;
-	(array_func)[1] = &put_wall;
-	(array_func)[2] = &put_cake;
-	(array_func)[3] = &put_player;
-	(array_func)[4] = &put_exit;
-	return (array_func);
+	if (indx == 0)
+		put_empty(game, i, j);
+	else if (indx == 1)
+		put_wall(game, i, j);
+	else if (indx == 2)
+		put_cake(game, i, j);
+	else if (indx == 3)
+		put_player(game, i, j);
+	else if (indx == 4)
+		put_exit(game, i, j);
 }
