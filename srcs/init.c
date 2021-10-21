@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 19:42:30 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/21 17:02:49 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/21 20:55:39 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_data	*init_game(t_data *game)
 	game->nb_cake = 0;
 	game->game_score = 0;
 	game->assets = "01CPE\0";
+	game->step = 0;
 	return (game);
 }
 

@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/21 17:05:47 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/21 21:09:27 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 # define ORANGE 0xFE6500
 # define PIC_SIDE 80
-# define XK_ESCAPE 61 // check
+# define XK_ESCAPE 17 // check
 # define XK_A 0
 # define XK_D 2
 # define XK_S 1
@@ -53,6 +53,7 @@ typedef struct s_data
 	int			nb_cake;
 	int			game_score;
 	char		*assets;
+	int			step;
 }				t_data;
 
 t_data		*init_game(t_data *game);
@@ -87,7 +88,7 @@ void		move_right(int key, t_data **game);
 int			key_press(int key, t_data **game);
 void		setup_action(t_data **game);
 int			key_hook(int keycode, t_data *game); // rewrite
-void		hook_test(t_data *game); // rewrite
+void		print_step(t_data *game); // rewrite
 void		print_map_data(t_data **game); // delete
 
 #endif

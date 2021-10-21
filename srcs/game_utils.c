@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 15:17:08 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/21 17:06:27 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/21 19:15:51 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,8 @@ void	game_proceed(t_data **game)
 	count_present(game);
 	get_player_pos(game);
 	set_picture(game);
-	print_map_data(game);
+	// print_map_data(game);
 	draw_map(game);
 	setup_action(game);
-	hook_test(*game); // rewrite
 	mlx_loop((*game)->mlx_ptr);
 }
