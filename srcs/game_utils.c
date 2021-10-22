@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 15:17:08 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/21 19:15:51 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/22 18:28:21 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	count_present(t_data **game)
 		}
 		line++;
 	}
+	if ((*game)->nb_cake == 0)
+		put_error_message(7);
 }
 
 void	get_player_pos(t_data **game)
@@ -51,11 +53,13 @@ void	get_player_pos(t_data **game)
 				check = 1;
 			}
 			else if ((*game)->file_data[line][columns] == 'P' && check == 1)
-				ft_puterror();
+				put_error_message(6);
 			columns++;
 		}
 		line++;
 	}
+	if ((*game)->x_pos_player == 0)
+		put_error_message(6);
 }
 
 void	game_proceed(t_data **game)

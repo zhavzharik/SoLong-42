@@ -16,6 +16,7 @@ LIST =			ft_atoi.c			\
 				ft_strchr.c			\
 				ft_strcpy.c 		\
 				ft_strjoin.c		\
+				ft_strncmp.c		\
 				get_next_line.c
 
 

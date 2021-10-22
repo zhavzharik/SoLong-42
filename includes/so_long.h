@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/21 22:25:32 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/22 20:28:16 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,12 @@ typedef struct s_data
 }				t_data;
 
 size_t		get_line_length(char *file);
+size_t		get_lines_height(char *file);
 void		check_map_length(char *file);
+void		check_wall(t_data *game);
+void		check_file_name(char *file);
+void		check_data(char *file);
+void		check_map_character(char *file);
 void		put_err_str(char *str);
 void		put_error_message(int nb_error);
 t_data		*init_game(t_data *game);

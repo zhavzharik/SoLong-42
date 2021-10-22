@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 22:11:54 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/21 22:35:05 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/22 18:48:46 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,18 @@ void	put_error_message(int check)
 {
 	write(STDERR_FILENO, "Error\n", 6);
 	if (check == 1)
-		put_err_str("The map must be rectangular");
+		put_err_str("The map must be rectangular!");
 	else if (check == 2)
-		put_err_str("The map must have at least one exit,\
-			one collectible, and one starting position");
+		put_err_str("The map must have at least one exit ('E')!");
 	else if (check == 3)
-		put_err_str("The map must contain only 01CEP characters");
+		put_err_str("The map must contain only '01CEP' characters!");
 	else if (check == 4)
-		put_err_str("The map must be closed/surrounded by walls");
+		put_err_str("The map must be closed/surrounded by walls!");
+	else if (check == 5)
+		put_err_str("The map must be in format *.ber");
+	else if (check == 6)
+		put_err_str("The map must have one player ('P')!");
+	else if (check == 7)
+		put_err_str("The map must have at least one collectible ('C')!");
 	exit (0);
 }

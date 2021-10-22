@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 16:14:27 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/22 17:36:12 by abridger         ###   ########.fr       */
+/*   Created: 2021/04/23 13:41:36 by abridger          #+#    #+#             */
+/*   Updated: 2021/07/25 16:25:37 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_data		*game;
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	if (argc == 2)
+	i = 0;
+	str1 = (unsigned char *) s1;
+	str2 = (unsigned char *) s2;
+	while ((str1[i] != '\0' || str2[i] != '\0') && i < n)
 	{
-		game = (t_data *)malloc(sizeof(t_data));
-		if (!game)
-			return (-1);
-		check_data(argv[1]);
-		init_game(game);
-		ft_reading_file(argv[1], &game);
-		game_proceed(&game);
-		// mlx_loop(game->mlx_ptr);
-		// ft_struct_clear(&game);
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
 	}
 	return (0);
 }
