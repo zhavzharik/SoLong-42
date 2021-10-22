@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:45:33 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/21 14:33:21 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/22 22:01:53 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@ void	put_empty(t_data **game, int i, int j)
 
 void	put_wall(t_data **game, int i, int j)
 {
-	mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
-		(*game)->wall, i, j);
+	if ((*game)->step % 13 == 0 && i / PIC_SIDE == (*game)->map_l - 2 && j == 0) // add loop with some pics
+		mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
+			(*game)->wall_rand, i, j);
+	else
+		mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
+			(*game)->wall, i, j);
 }
 
 void	put_cake(t_data **game, int i, int j)

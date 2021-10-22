@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 13:17:16 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/21 17:05:40 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/22 20:49:06 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ void	ft_struct_clear(t_data *game)
 	{
 		if (game->file_data)
 			ft_array_clear(game->file_data, game->map_h);
+		game->file_data = NULL;
 		game->map_h = 0;
 		game->map_l = 0;
 		game->wall = NULL;
+		game->wall_rand = NULL;
 		game->player_l = NULL;
 		game->player_r = NULL;
 		game->cake = NULL;
@@ -52,17 +54,24 @@ void	ft_struct_clear(t_data *game)
 		game->game_score = 0;
 		game->assets = NULL;
 	}
-	free(game);
-	game = NULL;
 }
 
-void	ft_clear_window(t_data **game)
+void	ft_clear_window(t_data *game)
 {
-	if (*game)
-	{
-		(*game)->mlx_ptr = NULL;
-		(*game)->win_ptr = NULL;
-	}
 	if (game)
+	{
+		game->mlx_ptr = NULL;
+		game->win_ptr = NULL;
+	}
+}
+
+void	ft_all_clear(t_data *game)
+{
+	if (game)
+	{
+		ft_struct_clear(game);
+		ft_clear_window(game);
 		free(game);
+		game = NULL;
+	}
 }

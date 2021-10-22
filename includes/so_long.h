@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/22 20:28:16 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/22 21:49:38 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@
 # define GHOST_R "./assets/ghost_right.xpm"
 # define PORT_C "./assets/portal_closed.xpm"
 # define PORT_O "./assets/portal_opened.xpm"
+# define WALL_R "./assets/witch.xpm"
 
-# define ORANGE 0xFE6500
+# define ORANGE 0xFE6500 // 0xffa500
 # define PIC_SIDE 80
 # define XK_ESCAPE 17 // check
 # define XK_A 0
@@ -41,6 +42,7 @@ typedef struct s_data
 	int			map_l;
 	char		**file_data;
 	void		*wall;
+	void		*wall_rand;
 	void		*player_l;
 	void		*player_r;
 	void		*cake;
@@ -81,8 +83,9 @@ void		put_player(t_data **game, int i, int j);
 void		put_exit(t_data **game, int i, int j);
 void		execute_func(t_data **game, int indx, int i, int j);
 void		ft_array_clear(char **array, int row);
-// void		ft_clear_window(t_data **game);
+void		ft_clear_window(t_data *game);
 void		ft_struct_clear(t_data *game);
+void		ft_all_clear(t_data *game);
 void		count_present(t_data **game);
 void		get_player_pos(t_data **game);
 void		game_proceed(t_data **game);

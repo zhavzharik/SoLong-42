@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 19:42:30 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/21 20:55:39 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/22 20:43:13 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ t_data	*init_game(t_data *game)
 {
 	game->map_h = 0;
 	game->map_l = 0;
+	game->file_data = NULL;
 	game->wall = NULL;
+	game->wall_rand = NULL;
 	game->player_l = NULL;
 	game->player_r = NULL;
 	game->cake = NULL;

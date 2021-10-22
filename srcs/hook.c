@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 17:29:53 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/21 21:09:38 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/22 20:52:51 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	key_hook(int keycode, t_data *game)
 {
 	(void)game;
-	if (keycode == XK_W) // && game->step_check != game->step) //whether_can_move(&game, game->x_pos_player, game->y_pos_player))
+	if (keycode == XK_W)
 		printf("Player moves up!\tStep number : %d\n", game->step);
 	else if (keycode == XK_S && whether_can_move(&game, game->x_pos_player,
 			game->y_pos_player))

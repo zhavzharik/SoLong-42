@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:31:59 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/21 17:02:15 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/22 21:50:09 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	set_picture(t_data **game)
 	(*game)->exit_c = mlx_xpm_file_to_image((*game)->mlx_ptr, PORT_C,
 			&img_width, &img_height);
 	(*game)->exit_o = mlx_xpm_file_to_image((*game)->mlx_ptr, PORT_O,
+			&img_width, &img_height);
+	(*game)->wall_rand = mlx_xpm_file_to_image((*game)->mlx_ptr, WALL_R,
 			&img_width, &img_height);
 }
 
