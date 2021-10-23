@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 13:17:16 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/22 20:49:06 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/23 17:36:46 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_array_clear(char **array, int row)
 		return ;
 	while (i < row)
 	{
-		temp = array[row++];
+		temp = array[i++];
 		free(temp);
 		temp = NULL;
 	}
@@ -40,7 +40,11 @@ void	ft_struct_clear(t_data *game)
 		game->map_h = 0;
 		game->map_l = 0;
 		game->wall = NULL;
-		game->wall_rand = NULL;
+		game->m_1 = NULL;
+		game->m_2 = NULL;
+		game->m_3 = NULL;
+		game->m_4 = NULL;
+		game->m_5 = NULL;
 		game->player_l = NULL;
 		game->player_r = NULL;
 		game->cake = NULL;
@@ -53,6 +57,8 @@ void	ft_struct_clear(t_data *game)
 		game->nb_cake = 0;
 		game->game_score = 0;
 		game->assets = NULL;
+		game->step = 0;
+		game->out = 0;
 	}
 }
 
@@ -70,7 +76,7 @@ void	ft_all_clear(t_data *game)
 	if (game)
 	{
 		ft_struct_clear(game);
-		ft_clear_window(game);
+		// ft_clear_window(game);
 		free(game);
 		game = NULL;
 	}

@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 17:28:09 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/21 20:55:08 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/23 17:02:23 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ void	move_up(int key, t_data **game)
 	{
 		if (whether_can_move(game, x, y - 1))
 		{
+			(*game)->out = whether_won(game, x, y - 1);
 			check_game_score(game, x, y - 1);
 			(*game)->step += 1;
-			printf("Player moves up!\tStep number : %d\n", (*game)->step);
+			print_step(*game);
+			// printf("Player moves up!\tStep number : %d\n", (*game)->step);
 			(*game)->y_pos_player -= 1;
 			change_map(game, '0', x, y);
 			change_map(game, 'P', (*game)->x_pos_player, (*game)->y_pos_player);
@@ -45,9 +47,11 @@ void	move_down(int key, t_data **game)
 	{
 		if (whether_can_move(game, x, y + 1))
 		{
+			(*game)->out = whether_won(game, x, y + 1);
 			check_game_score(game, x, y + 1);
 			(*game)->step += 1;
-			printf("Player moves down!\tStep number : %d\n", (*game)->step);
+			print_step(*game);
+			// printf("Player moves down!\tStep number : %d\n", (*game)->step);
 			(*game)->y_pos_player += 1;
 			change_map(game, '0', x, y);
 			change_map(game, 'P', (*game)->x_pos_player, (*game)->y_pos_player);
@@ -67,9 +71,11 @@ void	move_left(int key, t_data **game)
 	{
 		if (whether_can_move(game, x - 1, y))
 		{
+			(*game)->out = whether_won(game, x - 1, y);
 			check_game_score(game, x - 1, y);
 			(*game)->step += 1;
-			printf("Player moves left!\tStep number : %d\n", (*game)->step);
+			print_step(*game);
+			// printf("Player moves left!\tStep number : %d\n", (*game)->step);
 			(*game)->x_pos_player -= 1;
 			(*game)->flag_player = 0;
 			change_map(game, '0', x, y);
@@ -90,9 +96,11 @@ void	move_right(int key, t_data **game)
 	{
 		if (whether_can_move(game, x + 1, y))
 		{
+			(*game)->out = whether_won(game, x + 1, y);
 			check_game_score(game, x + 1, y);
 			(*game)->step += 1;
-			printf("Player moves right!\tStep number : %d\n", (*game)->step);
+			print_step(*game);
+			// printf("Player moves right!\tStep number : %d\n", (*game)->step);
 			(*game)->x_pos_player += 1;
 			(*game)->flag_player = 1;
 			change_map(game, '0', x, y);

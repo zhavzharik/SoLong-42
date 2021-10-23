@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:45:33 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/22 22:01:53 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/23 17:21:39 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,28 @@ void	put_empty(t_data **game, int i, int j)
 
 void	put_wall(t_data **game, int i, int j)
 {
-	if ((*game)->step % 13 == 0 && i / PIC_SIDE == (*game)->map_l - 2 && j == 0) // add loop with some pics
-		mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
-			(*game)->wall_rand, i, j);
+	if ((*game)->step % 10 < 8 && (*game)->step % 10 > 2
+		&& i / PIC_SIDE == (*game)->map_l - 2 && j == 0 && (*game)->step != 0)
+	{
+		if ((*game)->counter == 0)
+			mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
+				(*game)->m_1, i, j);
+		else if ((*game)->counter == 1)
+			mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
+				(*game)->m_2, i, j);
+		else if ((*game)->counter == 2)
+			mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
+				(*game)->m_3, i, j);
+		else if ((*game)->counter == 3)
+			mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
+				(*game)->m_4, i, j);
+		else if ((*game)->counter == 4)
+			mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
+				(*game)->m_4, i, j);
+		(*game)->counter++;
+		if ((*game)->counter == 5)
+			(*game)->counter = 0;
+	}
 	else
 		mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
 			(*game)->wall, i, j);

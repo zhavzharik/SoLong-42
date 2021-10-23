@@ -6,7 +6,7 @@
 #    By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 16:45:44 by abridger          #+#    #+#              #
-#    Updated: 2021/10/22 18:12:23 by abridger         ###   ########.fr        #
+#    Updated: 2021/10/23 16:52:38 by abridger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS			=	$(SRCS_DIR)	so_long.c		\
 								check_map_1.c	\
 								check_map_2.c	\
 								errors.c		\
+								end_game.c		\
 								additional.c
 
 

@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 17:46:52 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/21 16:50:25 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/23 13:54:06 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,14 @@ void	check_game_score(t_data **game, int x, int y)
 		(*game)->nb_cake -= 1;
 		(*game)->game_score += 1;
 	}
+}
+
+int	whether_won(t_data **game, int x, int y)
+{
+	char	ch;
+
+	ch = (*game)->file_data[y][x];
+	if (ch == 'E' && (*game)->nb_cake == 0)
+		return (1);
+	return (0);
 }

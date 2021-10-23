@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/22 21:49:38 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/23 16:50:11 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,22 @@
 # define GHOST_R "./assets/ghost_right.xpm"
 # define PORT_C "./assets/portal_closed.xpm"
 # define PORT_O "./assets/portal_opened.xpm"
-# define WALL_R "./assets/witch.xpm"
 
-# define ORANGE 0xFE6500 // 0xffa500
+# define MOVE_1 "./assets/witch.xpm"
+# define MOVE_2 "./assets/tree.xpm"
+# define MOVE_3 "./assets/pumpkin1.xpm"
+# define MOVE_4 "./assets/moon1.xpm"
+# define MOVE_5 "./assets/tree2.xpm"
+
+# define ORANGE 0xFFA500 // 0xffa500   0xFE6500
 # define PIC_SIDE 80
-# define XK_ESCAPE 17 // check
+# define XK_ESCAPE 53
 # define XK_A 0
 # define XK_D 2
 # define XK_S 1
 # define XK_W 13
+# define LOST "GAME OVER"
+# define WON "CONGRATULATIONS! YOU WON!"
 
 typedef struct s_data
 {
@@ -42,7 +49,11 @@ typedef struct s_data
 	int			map_l;
 	char		**file_data;
 	void		*wall;
-	void		*wall_rand;
+	void		*m_1;
+	void		*m_2;
+	void		*m_3;
+	void		*m_4;
+	void		*m_5;
 	void		*player_l;
 	void		*player_r;
 	void		*cake;
@@ -56,6 +67,8 @@ typedef struct s_data
 	int			game_score;
 	char		*assets;
 	int			step;
+	int			out;
+	int			counter;
 }				t_data;
 
 size_t		get_line_length(char *file);
@@ -74,6 +87,7 @@ void		get_map_height(char *file, t_data **game);
 void		get_map_length(char *file, t_data **game);
 int			ft_reading_file(char *file, t_data **game);
 void		set_picture(t_data **game);
+void		set_move_pic(t_data **game);
 int			get_index(char *assets, char ch);
 void		draw_map(t_data **game);
 void		put_empty(t_data **game, int i, int j);
@@ -99,6 +113,10 @@ void		move_left(int key, t_data **game);
 void		move_right(int key, t_data **game);
 int			key_press(int key, t_data **game);
 void		setup_action(t_data **game);
+int			whether_won(t_data **game, int x, int y);
+int			put_game_won(t_data **game);
+void		escape_game(int key, t_data **game);
+int			ft_close(t_data **game);
 int			key_hook(int keycode, t_data *game); // rewrite
 void		print_step(t_data *game); // rewrite
 void		print_map_data(t_data **game); // delete

@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 17:29:53 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/22 20:52:51 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/23 17:44:10 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,17 @@ void	print_step(t_data *game)
 	mlx_key_hook(game->win_ptr, key_hook, game);
 }
 
+void	escape_game(int key, t_data **game)
+{
+	if (key == XK_ESCAPE)
+	{
+		mlx_clear_window((*game)->mlx_ptr, (*game)->win_ptr);
+		mlx_destroy_window((*game)->mlx_ptr, (*game)->win_ptr);
+		ft_all_clear(*game);
+		exit (0);
+	}
+}
+
 int	key_press(int key, t_data **game)
 {
 	if (key == XK_W)
@@ -44,11 +55,14 @@ int	key_press(int key, t_data **game)
 		move_left(key, game);
 	else if (key == XK_D)
 		move_right(key, game);
+	else if (key == XK_ESCAPE)
+		escape_game(key, game);
 	return (0);
 }
 
 void	setup_action(t_data **game)
 {
 	mlx_hook((*game)->win_ptr, 2, 0, key_press, game);
-	mlx_hook((*game)->win_ptr, 17, 0, close, game);
+	mlx_hook((*game)->win_ptr, 17, 0, ft_close, game);
+	mlx_loop_hook((*game)->mlx_ptr, put_game_won, game);
 }
