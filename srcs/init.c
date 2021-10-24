@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 19:42:30 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/23 16:19:05 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/24 16:39:07 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ t_data	*init_game(t_data *game)
 	game->m_1 = NULL;
 	game->m_2 = NULL;
 	game->m_3 = NULL;
-	game->m_4 = NULL;
-	game->m_5 = NULL;
 	game->player_l = NULL;
 	game->player_r = NULL;
 	game->cake = NULL;

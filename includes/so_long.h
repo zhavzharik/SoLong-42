@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/23 16:50:11 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/24 17:05:14 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,11 @@
 # define PORT_C "./assets/portal_closed.xpm"
 # define PORT_O "./assets/portal_opened.xpm"
 
-# define MOVE_1 "./assets/witch.xpm"
-# define MOVE_2 "./assets/tree.xpm"
-# define MOVE_3 "./assets/pumpkin1.xpm"
-# define MOVE_4 "./assets/moon1.xpm"
-# define MOVE_5 "./assets/tree2.xpm"
+# define MOVE_1 "./assets/move1.xpm"
+# define MOVE_2 "./assets/move2.xpm"
+# define MOVE_3 "./assets/move3.xpm"
 
-# define ORANGE 0xFFA500 // 0xffa500   0xFE6500
+# define ORANGE 0xFE6500
 # define PIC_SIDE 80
 # define XK_ESCAPE 53
 # define XK_A 0
@@ -52,8 +50,6 @@ typedef struct s_data
 	void		*m_1;
 	void		*m_2;
 	void		*m_3;
-	void		*m_4;
-	void		*m_5;
 	void		*player_l;
 	void		*player_r;
 	void		*cake;
@@ -120,5 +116,9 @@ int			ft_close(t_data **game);
 int			key_hook(int keycode, t_data *game); // rewrite
 void		print_step(t_data *game); // rewrite
 void		print_map_data(t_data **game); // delete
+void		put_move_pic(t_data **game, int i, int j);
+void		draw_one_move(t_data **game);
+void		execute_move(t_data **game, int indx, int i, int j);
+void		draw_move(t_data **game);
 
 #endif

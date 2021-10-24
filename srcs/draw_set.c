@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:31:59 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/23 16:41:21 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/24 16:47:59 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@ void	set_move_pic(t_data **game)
 	(*game)->m_2 = mlx_xpm_file_to_image((*game)->mlx_ptr, MOVE_2,
 			&img_width, &img_height);
 	(*game)->m_3 = mlx_xpm_file_to_image((*game)->mlx_ptr, MOVE_3,
-			&img_width, &img_height);
-	(*game)->m_4 = mlx_xpm_file_to_image((*game)->mlx_ptr, MOVE_4,
-			&img_width, &img_height);
-	(*game)->m_5 = mlx_xpm_file_to_image((*game)->mlx_ptr, MOVE_5,
 			&img_width, &img_height);
 }
 
