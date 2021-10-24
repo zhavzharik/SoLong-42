@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 13:17:16 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/24 19:48:54 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/24 20:21:46 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	ft_bonus_clear(t_data *game)
 	game->enemy_1 = NULL;
 	game->enemy_2 = NULL;
 	game->enemy_3 = NULL;
+	game->enem_c = 0;
 }
 
 void	ft_clear_window(t_data *game)

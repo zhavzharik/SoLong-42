@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:45:33 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/24 20:04:46 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/24 20:42:11 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 void	put_empty(t_data **game, int i, int j)
 {
-	mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
-		(*game)->space, i, j);
+	if (i / PIC_SIDE == (*game)->map_l / 2
+		&& j / PIC_SIDE == (*game)->map_h / 2) // add function in order to define coordinate
+		put_enemy(game, i, j);
+	else
+		mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
+			(*game)->space, i, j);
 }
 
 void	put_wall(t_data **game, int i, int j)

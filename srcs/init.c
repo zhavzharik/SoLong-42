@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 19:42:30 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/24 19:38:40 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/24 20:21:37 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ t_data	*init_game_bonus(t_data *game)
 	game->enemy_1 = NULL;
 	game->enemy_2 = NULL;
 	game->enemy_3 = NULL;
+	game->enem_c = 0;
 	return (game);
 }
 

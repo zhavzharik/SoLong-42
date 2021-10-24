@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 16:41:21 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/24 20:06:46 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/24 20:39:58 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,23 @@ void	put_move_pump(t_data **game, int i, int j)
 		(*game)->counter++;
 		if ((*game)->counter == 4)
 			(*game)->counter = 0;
+	}
+}
+
+void	put_enemy(t_data **game, int i, int j)
+{
+	if (i / PIC_SIDE == (*game)->map_l / 2
+		&& j / PIC_SIDE == (*game)->map_h / 2) // add function in order to define coordinate
+	{
+		if ((*game)->enem_c == 0)
+			mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
+				(*game)->enemy_1, i, j);
+		else if ((*game)->enem_c == 1)
+			mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
+				(*game)->enemy_2, i, j);
+		(*game)->enem_c++;
+		if ((*game)->enem_c == 2)
+			(*game)->enem_c = 0;
 	}
 }
 

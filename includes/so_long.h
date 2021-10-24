@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/24 20:07:04 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/24 20:41:21 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct s_data
 	int			step;
 	int			out;
 	int			counter;
+	int			enem_c;
 }				t_data;
 
 size_t		get_line_length(char *file);
@@ -137,6 +138,8 @@ void		put_move_pump(t_data **game, int i, int j);
 // void		draw_move(t_data **game);
 t_data		*init_game_bonus(t_data *game);
 void		set_move_pic(t_data **game);
+void		set_enemy_pic(t_data **game);
 void		ft_bonus_clear(t_data *game);
+void		put_enemy(t_data **game, int i, int j);
 
 #endif
