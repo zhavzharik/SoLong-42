@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 16:14:27 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/23 17:39:51 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/24 19:40:21 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 			return (-1);
 		check_data(argv[1]);
 		init_game(game);
+		init_game_bonus(game);
 		ft_reading_file(argv[1], &game);
 		game_proceed(&game);
 		if (game)

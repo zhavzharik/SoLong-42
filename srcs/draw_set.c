@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:31:59 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/24 16:47:59 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/24 19:44:53 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,25 @@ void	set_move_pic(t_data **game)
 	(*game)->m_2 = mlx_xpm_file_to_image((*game)->mlx_ptr, MOVE_2,
 			&img_width, &img_height);
 	(*game)->m_3 = mlx_xpm_file_to_image((*game)->mlx_ptr, MOVE_3,
+			&img_width, &img_height);
+	(*game)->pump_1 = mlx_xpm_file_to_image((*game)->mlx_ptr, PUMP_1,
+			&img_width, &img_height);
+	(*game)->pump_2 = mlx_xpm_file_to_image((*game)->mlx_ptr, PUMP_2,
+			&img_width, &img_height);
+	(*game)->pump_4 = mlx_xpm_file_to_image((*game)->mlx_ptr, PUMP_4,
+			&img_width, &img_height);
+}
+
+void	set_enemy_pic(t_data **game)
+{
+	int		img_width;
+	int		img_height;
+
+	(*game)->enemy_1 = mlx_xpm_file_to_image((*game)->mlx_ptr, ENEMY_1,
+			&img_width, &img_height);
+	(*game)->enemy_2 = mlx_xpm_file_to_image((*game)->mlx_ptr, ENEMY_2,
+			&img_width, &img_height);
+	(*game)->enemy_3 = mlx_xpm_file_to_image((*game)->mlx_ptr, ENEMY_3,
 			&img_width, &img_height);
 }
 
@@ -45,6 +64,7 @@ void	set_picture(t_data **game)
 	(*game)->exit_o = mlx_xpm_file_to_image((*game)->mlx_ptr, PORT_O,
 			&img_width, &img_height);
 	set_move_pic(game);
+	set_enemy_pic(game);
 }
 
 void	execute_func(t_data **game, int indx, int i, int j)

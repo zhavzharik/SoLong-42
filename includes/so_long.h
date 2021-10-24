@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/24 17:05:14 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/24 20:07:04 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
 
-# define WALL "./assets/pumpkin.xpm"
+# define WALL "./assets/pumpkin3.xpm"
 # define GROUND "./assets/ground.xpm"
 # define CAKE "./assets/cake.xpm"
 # define GHOST_L "./assets/ghost_left.xpm"
@@ -28,6 +28,14 @@
 # define MOVE_1 "./assets/move1.xpm"
 # define MOVE_2 "./assets/move2.xpm"
 # define MOVE_3 "./assets/move3.xpm"
+
+# define PUMP_1 "./assets/pumpkin1.xpm"
+# define PUMP_2 "./assets/pumpkin2.xpm"
+# define PUMP_4 "./assets/pumpkin4.xpm"
+
+# define ENEMY_1 "./assets/witch1.xpm"
+# define ENEMY_2 "./assets/witch2.xpm"
+# define ENEMY_3 "./assets/witch3.xpm"
 
 # define ORANGE 0xFE6500
 # define PIC_SIDE 80
@@ -56,6 +64,12 @@ typedef struct s_data
 	void		*space;
 	void		*exit_c;
 	void		*exit_o;
+	void		*pump_1;
+	void		*pump_2;
+	void		*pump_4;
+	void		*enemy_1;
+	void		*enemy_2;
+	void		*enemy_3;
 	int			x_pos_player;
 	int			y_pos_player;
 	int			flag_player;
@@ -116,9 +130,13 @@ int			ft_close(t_data **game);
 int			key_hook(int keycode, t_data *game); // rewrite
 void		print_step(t_data *game); // rewrite
 void		print_map_data(t_data **game); // delete
-void		put_move_pic(t_data **game, int i, int j);
-void		draw_one_move(t_data **game);
-void		execute_move(t_data **game, int indx, int i, int j);
-void		draw_move(t_data **game);
+void		put_move_cat(t_data **game, int i, int j);
+void		put_move_pump(t_data **game, int i, int j);
+// void		draw_one_move(t_data **game);
+// void		execute_move(t_data **game, int indx, int i, int j);
+// void		draw_move(t_data **game);
+t_data		*init_game_bonus(t_data *game);
+void		set_move_pic(t_data **game);
+void		ft_bonus_clear(t_data *game);
 
 #endif
