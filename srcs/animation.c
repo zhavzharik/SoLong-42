@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 16:41:21 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/24 20:39:58 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/25 17:18:31 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,43 @@ void	put_move_pump(t_data **game, int i, int j)
 	}
 }
 
+void	set_enemy_pos(t_data **game)
+{
+	int	i;
+	int	j;
+
+	i = (*game)->map_l / 3;
+	j = (*game)->map_h / 3;
+	if ((*game)->file_data[j][i] != '0')
+	{
+		i = 0;
+		j = 0;
+		while ((*game)->file_data[j][i] != '0' && j < (*game)->map_h
+			&& i < (*game)->map_l)
+		{
+			j = 0;
+			while ((*game)->file_data[j][i] != '0' && j < (*game)->map_h
+				&& i < (*game)->map_l)
+				j++;
+			i++;
+		}
+	}
+	if ((*game)->file_data[j][i] == '0')
+	{
+		(*game)->x_pos_enemy = i;
+		(*game)->y_pos_enemy = j;
+	}
+}
+
 void	put_enemy(t_data **game, int i, int j)
 {
-	if (i / PIC_SIDE == (*game)->map_l / 2
-		&& j / PIC_SIDE == (*game)->map_h / 2) // add function in order to define coordinate
+	if (i / PIC_SIDE == (*game)->x_pos_enemy
+		&& j / PIC_SIDE == (*game)->y_pos_enemy)
 	{
-		if ((*game)->enem_c == 0)
+		if ((*game)->enem_c == 0 && (*game)->end == 0)
 			mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
 				(*game)->enemy_1, i, j);
-		else if ((*game)->enem_c == 1)
+		else if ((*game)->enem_c == 1 && (*game)->end == 0)
 			mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
 				(*game)->enemy_2, i, j);
 		(*game)->enem_c++;
@@ -73,55 +101,9 @@ void	put_enemy(t_data **game, int i, int j)
 	}
 }
 
-// void	draw_one_move(t_data **game)
-// {
-// 	int			line;
-// 	int			columns;
-// 	int			indx;
-
-// 	line = 0;
-// 	while (line < (*game)->map_h * PIC_SIDE)
-// 	{
-// 		columns = 0;
-// 		while (columns < (*game)->map_l * PIC_SIDE)
-// 		{
-// 			indx = get_index((*game)->assets,
-// 					(*game)->file_data[line / PIC_SIDE][columns / PIC_SIDE]);
-// 			execute_move(game, indx, columns, line);
-// 			columns += PIC_SIDE;
-// 		}
-// 		line += PIC_SIDE;
-// 	}
-// }
-
-// void	execute_move(t_data **game, int indx, int i, int j)
-// {
-// 	if (indx == 0)
-// 		put_empty(game, i, j);
-// 	else if (indx == 1)
-// 		put_move_pump(game, i, j);
-// 	else if (indx == 2)
-// 		put_cake(game, i, j);
-// 	else if (indx == 3)
-// 		put_player(game, i, j);
-// 	else if (indx == 4)
-// 		put_exit(game, i, j);
-// }
-
-// void	draw_move(t_data **game)
-// {
-// 	int	check;
-// 	int	repeat;
-
-// 	check = 0;
-// 	repeat = 0;
-// 	while (repeat < 1000000)
-// 	{
-// 		while (check < 4)
-// 		{
-// 			draw_one_move(game);
-// 			check++;
-// 		}
-// 		repeat++;
-// 	}
-// }
+int	whether_enemy(t_data **game, int x, int y)
+{
+	if (x == (*game)->x_pos_enemy && y == (*game)->y_pos_enemy)
+		return (1);
+	return (0);
+}

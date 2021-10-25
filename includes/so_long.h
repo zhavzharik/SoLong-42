@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/24 20:41:21 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/25 16:40:15 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,13 @@ typedef struct s_data
 	int			game_score;
 	char		*assets;
 	int			step;
+	int			prev_step;
 	int			out;
+	int			end;
 	int			counter;
 	int			enem_c;
+	int			x_pos_enemy;
+	int			y_pos_enemy;
 }				t_data;
 
 size_t		get_line_length(char *file);
@@ -98,7 +102,6 @@ void		get_map_height(char *file, t_data **game);
 void		get_map_length(char *file, t_data **game);
 int			ft_reading_file(char *file, t_data **game);
 void		set_picture(t_data **game);
-void		set_move_pic(t_data **game);
 int			get_index(char *assets, char ch);
 void		draw_map(t_data **game);
 void		put_empty(t_data **game, int i, int j);
@@ -129,7 +132,7 @@ int			put_game_won(t_data **game);
 void		escape_game(int key, t_data **game);
 int			ft_close(t_data **game);
 int			key_hook(int keycode, t_data *game); // rewrite
-void		print_step(t_data *game); // rewrite
+// void		print_step(t_data *game); // rewrite
 void		print_map_data(t_data **game); // delete
 void		put_move_cat(t_data **game, int i, int j);
 void		put_move_pump(t_data **game, int i, int j);
@@ -137,9 +140,13 @@ void		put_move_pump(t_data **game, int i, int j);
 // void		execute_move(t_data **game, int indx, int i, int j);
 // void		draw_move(t_data **game);
 t_data		*init_game_bonus(t_data *game);
+// void		set_move_pic(t_data **game);
 void		set_move_pic(t_data **game);
 void		set_enemy_pic(t_data **game);
 void		ft_bonus_clear(t_data *game);
 void		put_enemy(t_data **game, int i, int j);
+void		set_enemy_pos(t_data **game);
+int			whether_enemy(t_data **game, int x, int y);
+int			put_game_end(t_data **game);
 
 #endif
