@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/25 16:40:15 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/25 23:43:24 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,14 @@
 # define ENEMY_3 "./assets/witch3.xpm"
 
 # define ORANGE 0xFE6500
+# define NAVY 0x80
 # define PIC_SIDE 80
 # define XK_ESCAPE 53
 # define XK_A 0
 # define XK_D 2
 # define XK_S 1
 # define XK_W 13
-# define LOST "GAME OVER"
+# define LOST "GAME OVER!"
 # define WON "CONGRATULATIONS! YOU WON!"
 
 typedef struct s_data
@@ -74,10 +75,11 @@ typedef struct s_data
 	int			y_pos_player;
 	int			flag_player;
 	int			nb_cake;
-	int			game_score;
+	int			score;
+	int			max;
 	char		*assets;
 	int			step;
-	int			prev_step;
+	int			prev_step; // for mandatory
 	int			out;
 	int			end;
 	int			counter;
@@ -110,10 +112,9 @@ void		put_cake(t_data **game, int i, int j);
 void		put_player(t_data **game, int i, int j);
 void		put_exit(t_data **game, int i, int j);
 void		execute_func(t_data **game, int indx, int i, int j);
-void		ft_array_clear(char **array, int row);
-void		ft_clear_window(t_data *game);
-void		ft_struct_clear(t_data *game);
-void		ft_all_clear(t_data *game);
+void		ft_array_clear(char ***array, int row);
+void		ft_struct_clear(t_data **game);
+// void		ft_all_clear(t_data *game);
 void		count_present(t_data **game);
 void		get_player_pos(t_data **game);
 void		game_proceed(t_data **game);
@@ -128,19 +129,14 @@ void		move_right(int key, t_data **game);
 int			key_press(int key, t_data **game);
 void		setup_action(t_data **game);
 int			whether_won(t_data **game, int x, int y);
-int			put_game_won(t_data **game);
 void		escape_game(int key, t_data **game);
 int			ft_close(t_data **game);
-int			key_hook(int keycode, t_data *game); // rewrite
-// void		print_step(t_data *game); // rewrite
-void		print_map_data(t_data **game); // delete
+int			key_hook(int key, t_data *game);
+int			print_step(int key, t_data *game);
+void		set_max(t_data **game);
 void		put_move_cat(t_data **game, int i, int j);
 void		put_move_pump(t_data **game, int i, int j);
-// void		draw_one_move(t_data **game);
-// void		execute_move(t_data **game, int indx, int i, int j);
-// void		draw_move(t_data **game);
 t_data		*init_game_bonus(t_data *game);
-// void		set_move_pic(t_data **game);
 void		set_move_pic(t_data **game);
 void		set_enemy_pic(t_data **game);
 void		ft_bonus_clear(t_data *game);

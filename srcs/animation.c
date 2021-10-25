@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 16:41:21 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/25 17:18:31 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/26 00:00:48 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,27 +61,41 @@ void	set_enemy_pos(t_data **game)
 	int	i;
 	int	j;
 
-	i = (*game)->map_l / 3;
-	j = (*game)->map_h / 3;
-	if ((*game)->file_data[j][i] != '0')
-	{
-		i = 0;
-		j = 0;
-		while ((*game)->file_data[j][i] != '0' && j < (*game)->map_h
-			&& i < (*game)->map_l)
-		{
-			j = 0;
-			while ((*game)->file_data[j][i] != '0' && j < (*game)->map_h
-				&& i < (*game)->map_l)
-				j++;
-			i++;
-		}
-	}
-	if ((*game)->file_data[j][i] == '0')
+	i = (*game)->map_l / 2;
+	j = (*game)->map_h / 2;
+	// printf("I: %d\n", i); // delete
+	// printf("J: %d\n", j); // delete
+	if (get_component(game, i, j) != 'P' && get_component(game, i, j) != 'C')
 	{
 		(*game)->x_pos_enemy = i;
 		(*game)->y_pos_enemy = j;
 	}
+	else
+	{
+		(*game)->x_pos_enemy = i + 1; // дописать условие
+		(*game)->y_pos_enemy = j;
+	}
+	// if ((*game)->file_data[j][i] != '0')
+	// {
+	// 	i = 0;
+	// 	j = 0;
+	// 	while ((*game)->file_data[j][i] != '0' && j < (*game)->map_h
+	// 		&& i < (*game)->map_l)
+	// 	{
+	// 		j = 0;
+	// 		while ((*game)->file_data[j][i] != '0' && j < (*game)->map_h
+	// 			&& i < (*game)->map_l)
+	// 			j++;
+	// 		i++;
+	// 	}
+	// }
+	// printf("Ememy_pos_x: %d\n", (*game)->x_pos_enemy); // delete
+	// printf("Ememy_pos_y: %d\n", (*game)->y_pos_enemy); // delete
+	// if ((*game)->file_data[j][i] == '0')
+	// {
+	// 	(*game)->x_pos_enemy = i;
+	// 	(*game)->y_pos_enemy = j;
+	// }
 }
 
 void	put_enemy(t_data **game, int i, int j)
@@ -104,6 +118,8 @@ void	put_enemy(t_data **game, int i, int j)
 int	whether_enemy(t_data **game, int x, int y)
 {
 	if (x == (*game)->x_pos_enemy && y == (*game)->y_pos_enemy)
+	{
 		return (1);
+	}
 	return (0);
 }

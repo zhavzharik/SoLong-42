@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 16:14:27 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/24 19:40:21 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/25 23:32:36 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_data		*game;
+	t_data			*game;
 
 	if (argc == 2)
 	{
@@ -27,7 +27,10 @@ int	main(int argc, char **argv)
 		ft_reading_file(argv[1], &game);
 		game_proceed(&game);
 		if (game)
-			ft_all_clear(game);
+		{
+			printf("main");
+			ft_struct_clear(&game);
+		}
 	}
 	return (0);
 }

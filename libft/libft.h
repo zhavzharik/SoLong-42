@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 11:12:54 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/22 16:59:53 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/25 17:53:31 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strcpy(char *dest, char const *src);
 char	*ft_strjoin(char *s1, char const *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_itoa(int n);
 
 char	*check_rest(char *rest, char **line);
 int		check_lesen(int lesen, char **buf, char **line);

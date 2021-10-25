@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 17:46:52 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/23 13:54:06 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/25 23:58:09 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,12 @@ void	check_game_score(t_data **game, int x, int y)
 	if (get_component(game, x, y) == 'C')
 	{
 		(*game)->nb_cake -= 1;
-		(*game)->game_score += 1;
 	}
+	(*game)->step += 1;
+	if ((*game)->nb_cake == 0)
+		(*game)->score += 1;
+	if ((*game)->max - (*game)->score == 0 && !(*game)->out)
+		(*game)->end = 2;
 }
 
 int	whether_won(t_data **game, int x, int y)

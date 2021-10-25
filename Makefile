@@ -6,7 +6,7 @@
 #    By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 16:45:44 by abridger          #+#    #+#              #
-#    Updated: 2021/10/24 16:48:26 by abridger         ###   ########.fr        #
+#    Updated: 2021/10/25 20:24:30 by abridger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ OBJS			=	$(addprefix $(OBJS_DIR), $(notdir $(SRCS:.c=.o)))
 
 CC				=	gcc
 
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -g
 
 LDFLAGS			=	-L$(LIBMLX_DIR) -lmlx -L$(LIBFT_DIR) -lft -framework OpenGL -framework Appkit -O3
 
