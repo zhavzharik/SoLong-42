@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 15:17:08 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/26 00:10:21 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/26 19:38:27 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ void	game_proceed(t_data **game)
 	get_player_pos(game);
 	set_picture(game);
 	set_max(game);
-	// printf("MAX step: %d\n", (*game)->max);
 	set_enemy_pos(game); // bonus
 	draw_map(game);
 	setup_action(game);

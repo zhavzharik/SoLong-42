@@ -6,7 +6,7 @@
 #    By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 16:45:44 by abridger          #+#    #+#              #
-#    Updated: 2021/10/26 18:22:17 by abridger         ###   ########.fr        #
+#    Updated: 2021/10/26 22:01:58 by abridger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ SRCS			=	$(SRCS_DIR)	so_long.c		\
 								errors.c		\
 								end_game.c		\
 								animation.c		\
-								enemy.c	
+								enemy.c			\
+								additional.c
 
 
 
@@ -49,7 +50,7 @@ OBJS			=	$(addprefix $(OBJS_DIR), $(notdir $(SRCS:.c=.o)))
 
 CC				=	gcc
 
-CFLAGS			=	-Wall -Wextra -Werror -g
+CFLAGS			=	-Wall -Wextra -Werror -g3
 
 LDFLAGS			=	-L$(LIBMLX_DIR) -lmlx -L$(LIBFT_DIR) -lft -framework OpenGL -framework Appkit -O3
 

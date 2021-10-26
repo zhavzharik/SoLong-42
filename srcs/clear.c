@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 13:17:16 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/25 20:43:56 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/26 23:56:02 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,47 +15,105 @@
 void	ft_array_clear(char ***array, int row)
 {
 	int		i;
+	char	*temp;
+	int		line; // delete
 
 	i = 0;
-	while (i <= row)
+	printf("Row:%d\n", row);
+	while (i < row && (*array)[i])
 	{
-		free((*array)[i]);
+		printf("I before free: %d\n", i);
+		printf("(*array)[i]: %s\n", (*array)[i]);
+		temp = (*array)[i];
+		free(temp);
+		temp = NULL;
+		(*array)[i] = NULL;
+		if ((*array)[i])
+			printf("(array)[i] after free temp: %s\n", (*array)[i]);
+		if ((*array)[i] !=  NULL)
+			printf("(array)[i] after free temp...: %s\n", (*array)[i + 1]);
+		if (temp)
+			printf("temp after free temp: %s\n", temp);
 		i++;
 	}
-	free((*array));
-	(*array) = NULL;
+	if ((*array))
+	{
+		line = 0;
+		while (line < row)
+		{
+			printf("*Array\n");
+			printf("Array : %s\n", **array);
+			// printf("%d\t line : %s\n", line, *array[line]);
+			line++;
+		}
+		printf("*Array clear\n");
+		free((*array));
+		(*array) = NULL;
+	}
 }
 
-// void	ft_array_clear(char **array, int row)
+// void	ft_array_clear(char ***array, int row)
 // {
 // 	int		i;
 // 	char	*temp;
+// 	char	**table;
 
-// 	i = 0;
+// 	i = row - 1;
 // 	if (!array)
 // 		return ;
-// 	while (i < row)
+// 	table = *array;
+// 	printf("Row:%d\n", row);
+// 	while (i >= 0)
 // 	{
-// 		temp = array[i];
-// 		free(temp);
-// 		temp = NULL;
-// 		i++;
+// 		printf("I before free: %d\n", i);
+// 		printf("(table)[%d]: %s\n", i, (*table)[i]);
+// 		temp = *table[i];
+// 		if (temp)
+// 		{
+// 			printf("temp: %s\n", temp);
+// 			free(temp);
+// 			temp = NULL;
+// 		}
+// 		printf("(array)[i] after free temp: %s\n", (*array)[i]);
+// 		i--;
 // 	}
-// 	free(array);
-// 	*array = NULL;
+// 	if ((*array))
+// 	{
+// 		printf("(array): %s\n", (**array));
+// 		free((*array));
+// 		array = NULL;
+// 	}
 // }
 
 void	ft_struct_clear(t_data **game)
 {
-	int	i;
+	int		i;
+	char	**copy;
+	int		line;
 
-	i = (*game)->map_h;
+	copy = (*game)->file_data;
 	if (game)
 	{
+		i = (*game)->map_h;
+		// ft_array_clear((*game)->file_data, i);
 		ft_array_clear(&((*game)->file_data), i);
-		free(*game);
-		game = NULL;
-		printf("struct_clear\n");
+		// print_map_data(game); //
+		if (!(*game)->file_data)
+			printf("no char\n");
+		if ((*game))
+		{
+			free((*game));
+			game = NULL;
+		}
+		if (!game)
+			printf("struct_cleared\n");
+	}
+	line = 0;
+	if (copy)
+	{
+		printf("Copy");
+		free(copy);
+		copy = NULL;
 	}
 }
 

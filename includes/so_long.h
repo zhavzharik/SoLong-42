@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/26 18:25:36 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/26 20:59:16 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void		put_cake(t_data **game, int i, int j);
 void		put_player(t_data **game, int i, int j);
 void		put_exit(t_data **game, int i, int j);
 void		execute_func(t_data **game, int indx, int i, int j);
-void		ft_array_clear(char ***array, int row);
+void		ft_array_clear(char ***array, int row); // ptr
 void		ft_struct_clear(t_data **game);
 // void		ft_all_clear(t_data *game);
 void		count_present(t_data **game);
@@ -145,5 +145,6 @@ void		set_enemy_pos(t_data **game);
 void		set_enemy_pos_case(t_data **game);
 int			whether_enemy(t_data **game, int x, int y);
 int			put_game_end(t_data **game);
+void		print_map_data(t_data **game);
 
 #endif
