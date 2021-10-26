@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:24:47 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/25 23:43:24 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/26 18:25:36 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ void		set_enemy_pic(t_data **game);
 void		ft_bonus_clear(t_data *game);
 void		put_enemy(t_data **game, int i, int j);
 void		set_enemy_pos(t_data **game);
+void		set_enemy_pos_case(t_data **game);
 int			whether_enemy(t_data **game, int x, int y);
 int			put_game_end(t_data **game);
 

@@ -6,7 +6,7 @@
 #    By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 16:45:44 by abridger          #+#    #+#              #
-#    Updated: 2021/10/25 20:24:30 by abridger         ###   ########.fr        #
+#    Updated: 2021/10/26 18:22:17 by abridger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ SRCS			=	$(SRCS_DIR)	so_long.c		\
 								errors.c		\
 								end_game.c		\
 								animation.c		\
-								additional.c
+								enemy.c	
 
 
 

@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 16:41:09 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/25 23:42:58 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/26 18:34:54 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,5 @@ int	put_game_end(t_data **game)
 
 void	set_max(t_data **game)
 {
-	int	i;
-	int	j;
-
-	i = (*game)->map_l - 2;
-	j = (*game)->map_h - 2;
-	// (*game)->max = j * (i / 2 + i % 2) + i / 2;
-	(*game)->max = i + j + 4;
+	(*game)->max = (*game)->map_l + (*game)->map_h + 1;
 }
