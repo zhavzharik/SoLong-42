@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:45:33 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/25 21:31:28 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/27 17:01:13 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,14 @@
 
 void	put_empty(t_data **game, int i, int j)
 {
-	if (i / PIC_SIDE == (*game)->x_pos_enemy
-		&& j / PIC_SIDE == (*game)->y_pos_enemy)
-		put_enemy(game, i, j);
-	else
-		mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
-			(*game)->space, i, j);
+	mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
+		(*game)->space, i, j);
 }
 
 void	put_wall(t_data **game, int i, int j)
 {
-	if ((*game)->step % 10 > 2 && (*game)->step % 10 < 6 && !(*game)->end
-		&& i / PIC_SIDE == (*game)->map_l / 2 && j == 0 && (*game)->step != 0)
-	{
-		put_move_cat(game, i, j);
-	}
-	else if ((*game)->step % 10 > 5 && (*game)->step % 10 < 10
-		&& i / PIC_SIDE == (*game)->map_l % 2 == 0 && !(*game)->end
-		&& j / PIC_SIDE == (*game)->map_h - 1 && (*game)->step != 0)
-	{
-		put_move_pump(game, i, j);
-	}
-	else
-		mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
-			(*game)->wall, i, j);
+	mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
+		(*game)->wall, i, j);
 }
 
 void	put_cake(t_data **game, int i, int j)
@@ -48,10 +32,7 @@ void	put_cake(t_data **game, int i, int j)
 
 void	put_player(t_data **game, int i, int j)
 {
-	if ((*game)->end == 1)
-		mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
-			(*game)->enemy_3, i, j);
-	else if ((*game)->flag_player == 0 && (*game)->end == 0)
+	if ((*game)->flag_player == 0 && (*game)->end == 0)
 		mlx_put_image_to_window((*game)->mlx_ptr, (*game)->win_ptr,
 			(*game)->player_l, i, j);
 	else

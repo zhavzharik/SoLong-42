@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 19:42:30 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/27 15:12:59 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/27 17:04:01 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,10 @@ t_data	*init_game(t_data *game)
 	game->max = 0;
 	game->assets = "01CPE\0";
 	game->step = 0;
-	game->prev_step = 0; // for mandatory
+	game->prev_step = 0;
 	game->out = 0;
 	game->end = 0;
 	game->counter = 0;
-	return (game);
-}
-
-t_data	*init_game_bonus(t_data *game)
-{
-	game->m_1 = NULL;
-	game->m_2 = NULL;
-	game->m_3 = NULL;
-	game->pump_1 = NULL;
-	game->pump_2 = NULL;
-	game->pump_4 = NULL;
-	game->enemy_1 = NULL;
-	game->enemy_2 = NULL;
-	game->enemy_3 = NULL;
-	game->enem_c = 0;
 	return (game);
 }
 
