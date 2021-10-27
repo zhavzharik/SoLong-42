@@ -6,13 +6,13 @@
 #    By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 16:45:44 by abridger          #+#    #+#              #
-#    Updated: 2021/10/27 16:24:57 by abridger         ###   ########.fr        #
+#    Updated: 2021/10/27 16:37:58 by abridger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	so_long
 
-NAME_B			=	so_long
+NAME_B			=	so_long_bonus
 
 SRCS_DIR		=	./srcs/
 
@@ -88,10 +88,10 @@ LIBMLX			=	$(addprefix $(LIBMLX_DIR), libmlx.a)
 all:	$(LIBFT) $(LIBMLX) $(NAME)
 
 $(OBJS_DIR)%.o:	$(SRCS_DIR)%.c $(HEADERS) $(LIBFT) $(LIBMLX) Makefile | $(OBJS_DIR)
-	$(CC) $(CFLAGS) -O3 -I$(HEADERS_DIR) -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) -O3 -I$(HEADERS) -Imlx -c $< -o $@
 
 $(OBJS_BONUS_DIR)%.o:	$(SRCS_BONUS_DIR)%.c $(HEADERS_B) $(LIBFT) $(LIBMLX) Makefile | $(OBJS_BONUS_DIR)
-	$(CC) $(CFLAGS) -O3 -I$(HEADERS_DIR) -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) -O3 -I$(HEADERS_B) -Imlx -c $< -o $@
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
