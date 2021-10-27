@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 19:42:30 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/27 16:10:24 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/27 17:16:35 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ t_data	*init_game(t_data *game)
 	game->max = 0;
 	game->assets = "01CPE\0";
 	game->step = 0;
-	game->prev_step = 0; // for mandatory
 	game->out = 0;
 	game->end = 0;
 	game->counter = 0;

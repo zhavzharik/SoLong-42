@@ -6,35 +6,19 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 17:29:53 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/27 16:10:15 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/27 17:16:21 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
 
-// int	key_hook(int key, t_data *game) // for mandatory
-// {
-// 	if (key == XK_W && game->step - game->prev_step == 1 && !game->end && !game->out)
-// 		printf("Step : %d\n", game->step);
-// 	else if (key == XK_S && game->step - game->prev_step == 1
-// 		&& !game->end && !game->out)
-// 		printf("Step : %d\n", game->step);
-// 	else if (key == XK_A && game->step - game->prev_step == 1
-// 		&& !game->end && !game->out)
-// 		printf("Step : %d\n", game->step);
-// 	else if (key == XK_D && game->step - game->prev_step == 1
-// 		&& !game->end && !game->out)
-// 		printf("Step : %d\n", game->step);
-// 	return (0);
-// }
-
-int	key_hook(int key, t_data *game) // for bonus
+int	key_hook(int key, t_data *game)
 {
 	char	*str;
 
 	str = ft_itoa(game->step);
 	if ((key == XK_W || key == XK_A || key == XK_S || key == XK_D)
-		&& !game->out && !game->end) // game->step - game->prev_step == 1
+		&& !game->out && !game->end)
 		mlx_string_put(game->mlx_ptr, game->win_ptr, 10, 20, NAVY, str);
 	if (str)
 		free(str);

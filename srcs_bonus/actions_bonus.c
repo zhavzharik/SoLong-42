@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 17:28:09 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/27 16:07:17 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/27 17:13:13 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	move_up(int key, t_data **game)
 	y = (*game)->y_pos_player;
 	if (key == XK_W && !(*game)->end && !(*game)->out)
 	{
-		(*game)->prev_step = (*game)->step; // for mandatory
 		if (whether_can_move(game, x, y - 1))
 		{
 			(*game)->out = whether_won(game, x, y - 1);
@@ -44,7 +43,6 @@ void	move_down(int key, t_data **game)
 	y = (*game)->y_pos_player;
 	if (key == XK_S && !(*game)->end && !(*game)->out)
 	{
-		(*game)->prev_step = (*game)->step; // for mandatory
 		if (whether_can_move(game, x, y + 1))
 		{
 			(*game)->out = whether_won(game, x, y + 1);
@@ -67,7 +65,6 @@ void	move_left(int key, t_data **game)
 	y = (*game)->y_pos_player;
 	if (key == XK_A && !(*game)->end && !(*game)->out)
 	{
-		(*game)->prev_step = (*game)->step; // for mandatory
 		if (whether_can_move(game, x - 1, y))
 		{
 			(*game)->out = whether_won(game, x - 1, y);
@@ -91,7 +88,6 @@ void	move_right(int key, t_data **game)
 	y = (*game)->y_pos_player;
 	if (key == XK_D && !(*game)->end && !(*game)->out)
 	{
-		(*game)->prev_step = (*game)->step; // for mandatory
 		if (whether_can_move(game, x + 1, y))
 		{
 			(*game)->out = whether_won(game, x + 1, y);

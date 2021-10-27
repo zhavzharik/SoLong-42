@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:55:51 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/27 16:08:55 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/27 17:14:04 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	check_map_character(char *file)
 	check = 0;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		exit (0);
+		exit (EXIT_FAILURE);
 	rd = 1;
 	while (get_next_line(fd, &line))
 	{

@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:06:44 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/27 16:06:45 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/27 17:17:13 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ typedef struct s_data
 	int			max;
 	char		*assets;
 	int			step;
-	int			prev_step; // for mandatory
 	int			out;
 	int			end;
 	int			counter;
@@ -144,6 +143,5 @@ void		set_enemy_pos(t_data **game);
 void		set_enemy_pos_case(t_data **game);
 int			whether_enemy(t_data **game, int x, int y);
 int			put_game_end(t_data **game);
-void		print_map_data(t_data **game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abridger <abridger@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 15:17:08 by abridger          #+#    #+#             */
-/*   Updated: 2021/10/27 16:10:01 by abridger         ###   ########.fr       */
+/*   Updated: 2021/10/27 17:15:38 by abridger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	game_proceed(t_data **game)
 	get_player_pos(game);
 	set_picture(game);
 	set_max(game);
-	set_enemy_pos(game); // bonus
+	set_enemy_pos(game);
 	draw_map(game);
 	setup_action(game);
 	mlx_loop((*game)->mlx_ptr);
